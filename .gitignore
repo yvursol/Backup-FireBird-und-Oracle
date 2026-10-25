@@ -1,0 +1,25 @@
+# Local configuration and secrets - never commit
+config.json
+secrets/
+*.cred.xml
+
+# Logs and test output
+logs/
+*.log
+testResults.xml
+
+# Backup artifacts (in case BackupPath points inside the repo)
+*.fbk
+*.fdb
+*.dmp
+*.par
+*.ovf
+*.vmdk
+*.enc
+*.sha256
+SHA256SUMS
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/

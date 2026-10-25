@@ -1,0 +1,77 @@
+{
+  "LogPath": "D:\\Backup\\Logs",
+  "LogRetentionDays": 90,
+  "CredentialStorePath": "C:\\ProgramData\\BackupAutomation\\secrets",
+  "MinFreeSpaceGB": 50,
+  "Retention": {
+    "Days": 14,
+    "MinKeep": 3
+  },
+  "Monitoring": {
+    "MaxBackupAgeHours": 26,
+    "VerifyChecksums": true,
+    "VerifyOffsiteChecksums": false
+  },
+  "Encryption": {
+    "Enabled": true,
+    "CredentialName": "backup-encryption",
+    "Iterations": 600000
+  },
+  "Offsite": {
+    "Enabled": true,
+    "Path": "\\\\nas01\\backup$\\court-srv01",
+    "CredentialName": "",
+    "MinFreeSpaceGB": 20,
+    "Check": true,
+    "Retention": {
+      "Days": 30,
+      "MinKeep": 5
+    }
+  },
+  "VMware": {
+    "Enabled": true,
+    "VCenter": "vcenter.example.local",
+    "CredentialName": "vmware",
+    "BackupPath": "D:\\Backup\\VM",
+    "IgnoreInvalidCertificate": false,
+    "Quiesce": true,
+    "VirtualMachines": [
+      "vm-db-01",
+      "vm-app-01"
+    ]
+  },
+  "FireBird": {
+    "Enabled": true,
+    "GbakPath": "C:\\Program Files\\Firebird\\Firebird_3_0\\gbak.exe",
+    "BackupPath": "D:\\Backup\\FireBird",
+    "VerifyRestore": true,
+    "Databases": [
+      {
+        "Name": "main_db",
+        "Path": "C:\\Data\\Firebird\\MAIN.FDB",
+        "CredentialName": "firebird-main"
+      }
+    ]
+  },
+  "Oracle": {
+    "Enabled": false,
+    "ExpdpPath": "expdp",
+    "ImpdpPath": "impdp",
+    "VerifyDump": true,
+    "Label": "orcl",
+    "TnsName": "ORCL",
+    "DirectoryObject": "DATA_PUMP_DIR",
+    "DumpDirectoryPath": "\\\\dbserver\\dpdump$",
+    "BackupPath": "D:\\Backup\\Oracle",
+    "Schemas": [],
+    "Compression": "METADATA_ONLY",
+    "UseWallet": false,
+    "CredentialName": "oracle-backup"
+  },
+  "Telegram": {
+    "Enabled": false,
+    "CredentialName": "telegram",
+    "ChatId": "",
+    "NotifyOnSuccess": false
+  }
+}
